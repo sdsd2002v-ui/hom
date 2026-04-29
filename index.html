@@ -6,58 +6,30 @@
   <title>슈프림파트너스 | 영업·마케팅·보험 플랫폼</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* 추가 디자인: 업로드 박스 및 영상 갤러리 */
-    .upload-box {
-      border: 2px dashed var(--line);
+    /* 이미지 갤러리 전용 디자인 */
+    .recruit-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .gallery-item {
       border-radius: 15px;
-      padding: 10px;
-      text-align: center;
-      transition: 0.3s;
-      background: rgba(255,255,255,0.03);
-      cursor: pointer;
-      position: relative;
       overflow: hidden;
       aspect-ratio: 1/1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid var(--line);
+      background: #000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    .upload-box img {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.8;
-      transition: 0.3s;
+      display: block;
+      transition: transform 0.4s;
     }
-    .upload-box:hover img {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-    .upload-box .info-text {
-      position: relative;
-      z-index: 2;
-      background: rgba(0,0,0,0.5);
-      width: 100%;
-      padding: 5px 0;
-      color: #fff;
-      font-size: 11px;
-    }
-    .upload-box:hover {
-      border-color: var(--gold);
-    }
-    .upload-box input[type="file"] {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      cursor: pointer;
-      z-index: 3;
+    .gallery-item:hover img {
+      transform: scale(1.1);
     }
     .shorts-container {
       display: grid;
@@ -195,73 +167,25 @@
       <div class="wrap">
         <div class="section-head">
           <em>RECRUIT</em>
-          <h2>채용안내 (자료 첨부)</h2>
-          <p>각 영역에 활동 이미지를 배치했습니다. 추가 자료를 첨부하여 전송할 수 있습니다.</p>
+          <h2>채용안내</h2>
+          <p>슈프림파트너스 교육 및 활동 현장입니다.</p>
         </div>
 
-        <form action="https://formspree.io/f/xwvagaaw" method="POST" enctype="multipart/form-data">
-          <div class="recruit-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
-            <!-- 이미지 1~10 적용된 업로드 박스 -->
-            <div class="upload-box">
-              <img src="이미지/1.jpg" alt="사진 01">
-              <div class="info-text">사진 01 (클릭하여 변경)</div>
-              <input type="file" name="file_01">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/2.jpg" alt="사진 02">
-              <div class="info-text">사진 02 (클릭하여 변경)</div>
-              <input type="file" name="file_02">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/3.jpg" alt="사진 03">
-              <div class="info-text">사진 03 (클릭하여 변경)</div>
-              <input type="file" name="file_03">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/4.jpg" alt="사진 04">
-              <div class="info-text">사진 04 (클릭하여 변경)</div>
-              <input type="file" name="file_04">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/5.jpg" alt="사진 05">
-              <div class="info-text">사진 05 (클릭하여 변경)</div>
-              <input type="file" name="file_05">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/6.jpg" alt="사진 06">
-              <div class="info-text">사진 06 (클릭하여 변경)</div>
-              <input type="file" name="file_06">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/7.jpg" alt="사진 07">
-              <div class="info-text">사진 07 (클릭하여 변경)</div>
-              <input type="file" name="file_07">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/8.jpg" alt="사진 08">
-              <div class="info-text">사진 08 (클릭하여 변경)</div>
-              <input type="file" name="file_08">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/9.jpg" alt="사진 09">
-              <div class="info-text">사진 09 (클릭하여 변경)</div>
-              <input type="file" name="file_09">
-            </div>
-            <div class="upload-box">
-              <img src="이미지/10.jpg" alt="사진 10">
-              <div class="info-text">사진 10 (클릭하여 변경)</div>
-              <input type="file" name="file_10">
-            </div>
-          </div>
-          
-          <div style="text-align: center; margin-top: 40px;">
-            <input type="text" name="applicant" placeholder="지원자 성함" required style="padding:15px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,0.05); color:#fff; width:280px; margin-bottom:15px; font-size:16px;">
-            <br>
-            <button type="submit" class="btn gold" style="padding: 18px 60px; font-size:18px;">모든 자료 전송하기</button>
-          </div>
-        </form>
+        <!-- 순수 이미지 갤러리 -->
+        <div class="recruit-gallery">
+          <div class="gallery-item"><img src="이미지/1.jpg" alt="활동사진 1"></div>
+          <div class="gallery-item"><img src="이미지/2.jpg" alt="활동사진 2"></div>
+          <div class="gallery-item"><img src="이미지/3.jpg" alt="활동사진 3"></div>
+          <div class="gallery-item"><img src="이미지/4.jpg" alt="활동사진 4"></div>
+          <div class="gallery-item"><img src="이미지/5.jpg" alt="활동사진 5"></div>
+          <div class="gallery-item"><img src="이미지/6.jpg" alt="활동사진 6"></div>
+          <div class="gallery-item"><img src="이미지/7.jpg" alt="활동사진 7"></div>
+          <div class="gallery-item"><img src="이미지/8.jpg" alt="활동사진 8"></div>
+          <div class="gallery-item"><img src="이미지/9.jpg" alt="활동사진 9"></div>
+          <div class="gallery-item"><img src="이미지/10.jpg" alt="활동사진 10"></div>
+        </div>
 
-        <div class="recruit-text">
+        <div class="recruit-text" style="margin-top: 50px;">
           <div class="mini-card">
             <h3>신입 지원자</h3>
             <p>초보자도 전문가로 성장하는 최고의 교육 시스템</p>
