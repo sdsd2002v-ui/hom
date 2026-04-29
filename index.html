@@ -625,7 +625,7 @@
         <div class="section-head">
           <em>CONTACT</em>
           <h2>문의하기</h2>
-          <p>보험 상담, 채용 문의, 제휴 문의를 남겨주세요.</p>
+          <p>보험 상담, 채용 문의를 남겨주세요.</p>
         </div>
 
         <div class="contact-grid">
@@ -636,26 +636,71 @@
             </p>
             <div class="info-line"><b>회사명</b>슈프림파트너스</div>
             <div class="info-line"><b>대표</b>손대현</div>
-            <div class="info-line"><b>문의 가능 항목</b>보험 상담 · 채용 문의 · 광고/홈페이지/SNS 문의</div>
+            <div class="info-line"><b>문의 가능 항목</b>보험 상담 · 채용 문의</div>
           </div>
 
           <div class="contact-form">
-            <h3>문의 양식</h3>
-            <form onsubmit="handleSubmit(event)">
+            <h3>문의 양식 (EmailJS)</h3>
+            <form id="contact-form" onsubmit="handleSubmit(event)">
               <label>
                 이름
-                <input type="text" name="from_name" placeholder="이름을 입력해주세요" required="">
+                <input type="text" name="from_name" id="from_name" placeholder="이름을 입력해주세요" required="">
               </label>
               <label>
                 연락처
-                <input type="tel" name="phone" placeholder="010-0000-0000" required="">
+                <input type="tel" name="phone" id="phone" placeholder="010-0000-0000" required="">
               </label>
               <label>
                 문의내용
-                <textarea name="message" placeholder="문의하실 내용을 입력해주세요" required=""></textarea>
+                <textarea name="message" id="message" placeholder="문의하실 내용을 입력해주세요" required=""></textarea>
               </label>
-              <button class="btn gold" type="submit">문의 제출하기</button>
-              <p class="form-note">※ 현재는 미리보기용 양식입니다. 실제 홈페이지 연결 시 이메일, 카카오톡, 구글폼, DB 저장 방식으로 연동할 수 있습니다.</p>
+              <button class="btn gold" type="submit" id="submit-btn">문의 제출하기</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 제휴 문의 섹션 (Formspree 사용) -->
+    <section id="partnership">
+      <div class="wrap">
+        <div class="section-head">
+          <em>PARTNERSHIP</em>
+          <h2>제휴 문의</h2>
+          <p>비즈니스 파트너십 및 제휴 제안을 남겨주세요.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>제휴 제안</h3>
+            <p>
+              슈프림파트너스와 함께 성장할 파트너사의 제안을 기다립니다.
+            </p>
+            <div class="info-line"><b>제휴 범위</b>광고 · 플랫폼 · 공동 마케팅</div>
+            <div class="info-line"><b>문의처</b>제휴 담당자</div>
+          </div>
+
+          <div class="contact-form">
+            <h3>제휴 제안 양식 (Formspree)</h3>
+            <form action="https://formspree.io/f/xwvagaaw" method="POST">
+              <label>
+                업체명 / 성함
+                <input type="text" name="partner_name" placeholder="업체명 또는 성함을 입력해주세요" required="">
+              </label>
+              <label>
+                연락처
+                <input type="tel" name="partner_phone" placeholder="연락처를 입력해주세요" required="">
+              </label>
+              <label>
+                이메일
+                <input type="email" name="_replyto" placeholder="답변받으실 이메일을 입력해주세요" required="">
+              </label>
+              <label>
+                제휴 내용
+                <textarea name="content" placeholder="제휴하고 싶은 내용을 적어주세요" required=""></textarea>
+              </label>
+              <button class="btn gold" type="submit">제안 제출하기</button>
+              <p class="form-note">※ Formspree를 통해 안전하게 전달됩니다.</p>
             </form>
           </div>
         </div>
