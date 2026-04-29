@@ -10,16 +10,44 @@
     .upload-box {
       border: 2px dashed var(--line);
       border-radius: 15px;
-      padding: 20px;
+      padding: 10px;
       text-align: center;
       transition: 0.3s;
       background: rgba(255,255,255,0.03);
       cursor: pointer;
       position: relative;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .upload-box img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+    .upload-box:hover img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    .upload-box .info-text {
+      position: relative;
+      z-index: 2;
+      background: rgba(0,0,0,0.5);
+      width: 100%;
+      padding: 5px 0;
+      color: #fff;
+      font-size: 11px;
     }
     .upload-box:hover {
       border-color: var(--gold);
-      background: rgba(212,168,83,0.05);
     }
     .upload-box input[type="file"] {
       position: absolute;
@@ -29,12 +57,7 @@
       left: 0;
       opacity: 0;
       cursor: pointer;
-    }
-    .upload-box .icon {
-      font-size: 24px;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 10px;
+      z-index: 3;
     }
     .shorts-container {
       display: grid;
@@ -162,20 +185,8 @@
           <em>GALLERY</em>
           <h3>활동 영상 & 숏츠</h3>
         </div>
-        <div class="shorts-container">
-          <div class="shorts-item">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="shorts-item">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="shorts-item">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="shorts-item">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <!-- 추가하고 싶은 만큼 위 div 블록을 복사해서 넣으면 됩니다. -->
+        <div id="shorts-gallery" class="shorts-container">
+          <!-- main.js에서 영상이 자동으로 추가됩니다 -->
         </div>
       </div>
     </section>
@@ -185,70 +196,60 @@
         <div class="section-head">
           <em>RECRUIT</em>
           <h2>채용안내 (자료 첨부)</h2>
-          <p>아래 업로드 박스를 클릭하여 사진이나 영상 자료를 첨부해 주세요.</p>
+          <p>각 영역에 활동 이미지를 배치했습니다. 추가 자료를 첨부하여 전송할 수 있습니다.</p>
         </div>
 
         <form action="https://formspree.io/f/xwvagaaw" method="POST" enctype="multipart/form-data">
           <div class="recruit-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
-            <!-- 고도화된 업로드 박스 01~10 -->
+            <!-- 이미지 1~10 적용된 업로드 박스 -->
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 01</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/1.jpg" alt="사진 01">
+              <div class="info-text">사진 01 (클릭하여 변경)</div>
               <input type="file" name="file_01">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 02</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/2.jpg" alt="사진 02">
+              <div class="info-text">사진 02 (클릭하여 변경)</div>
               <input type="file" name="file_02">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 03</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/3.jpg" alt="사진 03">
+              <div class="info-text">사진 03 (클릭하여 변경)</div>
               <input type="file" name="file_03">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 04</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/4.jpg" alt="사진 04">
+              <div class="info-text">사진 04 (클릭하여 변경)</div>
               <input type="file" name="file_04">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 05</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/5.jpg" alt="사진 05">
+              <div class="info-text">사진 05 (클릭하여 변경)</div>
               <input type="file" name="file_05">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 06</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/6.jpg" alt="사진 06">
+              <div class="info-text">사진 06 (클릭하여 변경)</div>
               <input type="file" name="file_06">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 07</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/7.jpg" alt="사진 07">
+              <div class="info-text">사진 07 (클릭하여 변경)</div>
               <input type="file" name="file_07">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 08</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/8.jpg" alt="사진 08">
+              <div class="info-text">사진 08 (클릭하여 변경)</div>
               <input type="file" name="file_08">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 09</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/9.jpg" alt="사진 09">
+              <div class="info-text">사진 09 (클릭하여 변경)</div>
               <input type="file" name="file_09">
             </div>
             <div class="upload-box">
-              <span class="icon">📁</span>
-              <span style="font-size:13px; font-weight:800;">사진 10</span>
-              <p style="font-size:11px; color:var(--muted); margin-top:5px;">클릭하여 첨부</p>
+              <img src="이미지/10.jpg" alt="사진 10">
+              <div class="info-text">사진 10 (클릭하여 변경)</div>
               <input type="file" name="file_10">
             </div>
           </div>
@@ -256,7 +257,7 @@
           <div style="text-align: center; margin-top: 40px;">
             <input type="text" name="applicant" placeholder="지원자 성함" required style="padding:15px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,0.05); color:#fff; width:280px; margin-bottom:15px; font-size:16px;">
             <br>
-            <button type="submit" class="btn gold" style="padding: 18px 60px; font-size:18px;">모든 파일 전송하기</button>
+            <button type="submit" class="btn gold" style="padding: 18px 60px; font-size:18px;">모든 자료 전송하기</button>
           </div>
         </form>
 
