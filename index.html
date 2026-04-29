@@ -129,8 +129,16 @@
         </div>
 
         <div class="media-placeholder">
-          <b>SNS 광고 영상 및 사진 영역</b><br>
-          추후 실제 광고 중인 동영상, 이미지, 릴스, 쇼츠 화면을 이 영역에 삽입할 수 있습니다.
+          <b>미디어 파일 제출 (광고/사진/영상)</b><br>
+          <p style="font-size:14px; margin-bottom:15px; color:rgba(255,255,255,0.6);">광고로 활용할 이미지나 영상을 첨부해 주세요.</p>
+          
+          <form action="https://formspree.io/f/xwvagaaw" method="POST" enctype="multipart/form-data" style="display: grid; gap: 10px; max-width: 400px; margin: 0 auto;">
+            <input type="text" name="name" placeholder="성함/업체명" required style="margin-top:0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; color:#fff;">
+            <input type="file" name="upload" accept="image/*,video/*" required style="border: 1px dashed var(--gold); padding: 20px; background: rgba(212,168,83,0.05); color: #fff; border-radius: 8px;">
+            <button class="btn gold" type="submit" style="padding: 12px; border-radius: 8px; width: 100%;">파일 전송하기</button>
+          </form>
+          
+          <p style="margin-top:15px; font-size:12px; color:var(--gold2);">※ 전송된 파일은 담당자 검토 후 사이트에 반영됩니다.</p>
         </div>
       </div>
     </section>
